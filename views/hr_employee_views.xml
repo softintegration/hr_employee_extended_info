@@ -1,0 +1,26 @@
+<?xml version='1.0' encoding='utf-8'?><odoo>
+  <data>
+    <record id="view_employee_form_inherited" model="ir.ui.view">
+      <field name="name">view.employee.form.inherited</field>
+      <field name="model">hr.employee</field>
+      <field name="inherit_id" ref="hr.view_employee_form"/>
+      <field name="arch" type="xml">
+        <xpath expr="//field[@name='identification_id']" position="after">
+            <field name="birth_act"/>
+        </xpath>
+        <xpath expr="//field[@name='country_of_birth']" position="after">
+            <field name="blood_type"/>
+        </xpath>
+        <xpath expr="//field[@name='marital']" position="after">
+            <field name="spouse_at_home" attrs="{'invisible':[('marital','!=','married')]}"/>
+        </xpath>
+        <xpath expr="//field[@name='children']" position="after">
+            <field name="schoolchildren" attrs="{'invisible':[('marital','!=','married')]}"/>
+            <field name="disabledchildren" attrs="{'invisible':[('marital','!=','married')]}"/>
+        </xpath>
+      </field>
+    </record>
+
+
+  </data>
+</odoo>

@@ -18,6 +18,9 @@
             <field name="schoolchildren" attrs="{'invisible':[('marital','!=','married')]}"/>
             <field name="disabledchildren" attrs="{'invisible':[('marital','!=','married')]}"/>
         </xpath>
+        <xpath expr="//field[@name='address_home_id']" position="attributes">
+            <attribute name="domain">[('type','=','private')]</attribute>
+        </xpath>
       </field>
     </record>
 
